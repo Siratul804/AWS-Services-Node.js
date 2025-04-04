@@ -1,0 +1,14 @@
+service: serverless
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs20.x
+
+function:
+  serverlessFn:
+    handler: hello.handler
+    events:
+      - httpApi:
+          path: /hello
+          method: GET
