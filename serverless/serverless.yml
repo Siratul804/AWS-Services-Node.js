@@ -4,10 +4,17 @@ frameworkVersion: "3"
 provider:
   name: aws
   runtime: nodejs20.x
+  region: ap-south-1
 
 function:
-  serverlessFn:
+  serverlessFnHello:
     handler: hello.handler
+    events:
+      - httpApi:
+          path: /hello
+          method: GET
+  serverlessFnBye:
+    handler: bye.handler
     events:
       - httpApi:
           path: /hello
